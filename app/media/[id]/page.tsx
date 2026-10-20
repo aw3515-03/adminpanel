@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
+export const dynamic = "force-dynamic";
+
+
 export default function MediaDetail() {
   const { id } = useParams();
   const router = useRouter();
