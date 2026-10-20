@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useSearchParams } from "next/navigation";
 
-export const dynamic = "force-dynamic";
+export const instant = false;
 
 function LoginForm() {
   const supabase = createClient();
