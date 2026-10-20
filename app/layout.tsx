@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AdminSidebar from "@/components/AdminSidebar";
 
-export const dynamic = "force-dynamic";
+export const instant = false;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
