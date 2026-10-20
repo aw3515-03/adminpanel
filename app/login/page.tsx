@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useSearchParams } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 function LoginForm() {
   const supabase = createClient();
   const searchParams = useSearchParams();
@@ -20,17 +22,25 @@ function LoginForm() {
   };
 
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>Log in</h1>
-      <button onClick={handleLogin}>Continue with Google</button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <main className="min-h-screen bg-black flex items-center justify-center">
+      <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-8 w-full max-w-sm">
+        <button
+          onClick={handleLogin}
+          className="w-full py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded border border-zinc-600"
+        >
+          Log in with Google
+        </button>
+        {error && (
+          <p className="mt-4 text-red-400 text-sm">{error}</p>
+        )}
+      </div>
     </main>
   );
 }
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<p className="text-white p-8">Loading...</p>}>
       <LoginForm />
     </Suspense>
   );
